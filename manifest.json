@@ -1,0 +1,28 @@
+{
+    "name": "My Extension",
+    "action": {},
+    "manifest_version": 3,
+    "version": "0.1",
+    "description": "Turns the page red when you click the icon",
+    "permissions": [
+        "activeTab",
+        "scripting"
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [{
+        "matches": ["http://*/*","https://*/*"],
+        "js": ["content.js"]
+    }],
+    "commands": {
+        "copy": {
+            "suggested_key": "Ctrl+Shift+E",
+            "description": "Copy text."
+        },
+        "paste": {
+            "suggested_key": "Ctrl+Shift+L",
+            "description": "Paste text."
+        }
+    }
+}
