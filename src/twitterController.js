@@ -1,15 +1,16 @@
 
-console.log("aaaa");
+//console.log("aaaa");
 
-export const postTwitter = () => {
+const postTwitter = () => {
+	console.log("postTwitter called!");
 	require('dotenv').config();
 	const Twitter = require('twitter');
 
 	const client = new Twitter({
-	consumer_key:'prosess.env.API_KEY',
-	consumer_secret: 'prosess.env.API_SECRET_KEY',
-	access_token_key: 'prosess.env.ACCESS_TOKEN',
-	access_token_secret: 'prosess.env.ACCESS_TOKEN_SECRET'
+		consumer_key:'prosess.env.API_KEY',
+		consumer_secret: 'prosess.env.API_SECRET_KEY',
+		access_token_key: 'prosess.env.ACCESS_TOKEN',
+		access_token_secret: 'prosess.env.ACCESS_TOKEN_SECRET'
 	});
 
 	var params = {status: 'ツイートtest'};
@@ -22,4 +23,6 @@ export const postTwitter = () => {
 	});
 }
 
-postTwitter();
+module.exports = postTwitter;
+
+//postTwitter();

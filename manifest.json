@@ -27,7 +27,7 @@
         },
         "list": {
             "suggested_key": "Ctrl+Shift+L",
-            "description": "Copy text."
+            "description": "Show Copy List."
         }
     }
 }

@@ -1,4 +1,4 @@
-alert("Hello!");
+//alert("Hello!");
 
 document.addEventListener('selectionchange', function (event) {
     let selectionText = window.getSelection().toString();
