@@ -1,28 +1,4 @@
-// chrome.action.onClicked.addListener((tab) => {
-//     chrome.scripting.executeScript({
-//         target: {tabId: tab.id},
-//         func: contentScriptFunc,
-//         args: ['action'],
-//     });
-// });
-
-// function contentScriptFunc(name) {
-//     alert(`"${name}" executed`);
-// }
-
-// // This callback WILL NOT be called for "_execute_action"
-// chrome.commands.onCommand.addListener((command) => {
-//     console.log(`Command "${command}" called`);
-// });
-
-// chrome.commands.onCommand.addListener((command) => {
-//     chrome.scripting.executeScript({
-//         target: {tabId: tab.id},
-//         func: contentScriptFunc,
-//         args: ['action'],
-//     });
-// });
-
+import {postTwitter} from "./src/twitterController.js";
 let selectionText;
 
 const user = {
@@ -30,11 +6,16 @@ const user = {
 };
 
 const copyText = (text) => {
+    postTwitter();
     console.log("copy: "+text);
 }
 
 const pasteText = (text) => {
     console.log("paste: " + text);
+}
+
+const showList = (text) => {
+    console.log("list: " + text);
 }
 
 // function onMessageFunc(message, sender, sendResponse) {
@@ -56,6 +37,9 @@ chrome.commands.onCommand.addListener((command) => {
             break;
         case "paste":
             pasteText(selectionText);
+            break;
+        case "list":
+            showList(selectionText);
             break;
     }
     console.log(`Command "${command}" called selectionText:${selectionText}`);
